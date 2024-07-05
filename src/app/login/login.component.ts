@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   isLoading: boolean = false;
-  apiError: string = "";
+  apiError: string = '';
   selectedForm: 'user' | 'pharmacy' | null = null;
-  pharmacyClicked = false;
-  userClicked = false;
 
   userLoginForm: FormGroup = new FormGroup({
     username: new FormControl(null, [
@@ -43,13 +40,11 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    // Check authentication status on component initialization
     if (this.authService.isLoggedIn()) {
       this.router.navigate(['/home']);
     }
   }
 
-  // Function to choose form based on button click and hide buttons
   chooseForm(formType: 'user' | 'pharmacy') {
     this.selectedForm = formType;
   }
@@ -65,9 +60,7 @@ export class LoginComponent implements OnInit {
             console.log('User Login successful:', res);
             const decodedToken = this.authService.decodeUserToken();
             if (decodedToken) {
-              this.router.navigate(['/home']);
-              // Prevent navigating back to login
-              history.pushState(null, '/home');
+              this.router.navigate(['/profile']);
             } else {
               this.apiError = 'Invalid token received.';
               this.authService.logout();
@@ -88,8 +81,7 @@ export class LoginComponent implements OnInit {
             const decodedToken = this.authService.decodeUserToken();
             console.log("decoded Token",decodedToken) ;
             if (decodedToken) {
-              this.router.navigate(['/home']);
-              history.pushState(null, '/home');
+              this.router.navigate(['/profile']);
             } else {
               this.apiError = 'Invalid token received.';
               this.authService.logout();

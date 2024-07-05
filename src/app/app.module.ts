@@ -18,6 +18,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 import { CategoryBoxesComponent } from './category-boxes/category-boxes.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { CategoryBoxesComponent } from './category-boxes/category-boxes.componen
     FooterComponent,
     MedicinesComponent,
     MedicineDetailsComponent,
-    CategoryBoxesComponent
+    CategoryBoxesComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

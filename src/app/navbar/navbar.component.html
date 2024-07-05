@@ -34,7 +34,6 @@
         <li class="nav-item" *ngIf="isLoggedIn">
           <button id="btn" class="nav-link" (click)="scrollToSection($event, 'contactSection')">Contact US</button>
         </li>
-
       </ul>
       <ul class="navbar-nav mb-2 bg-dark">
         <ng-container *ngIf="!isLoggedIn; else loggedInButtons">
@@ -46,8 +45,15 @@
           </li>
         </ng-container>
         <ng-template #loggedInButtons>
-          <li class="nav-item">
-            <button class="btn btn-outline-light" (click)="confirmLogout()">Logout</button>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fa-solid fa-bars"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/profile" routerLinkActive="active" (click)="reloadIfActive('/profile')">Profile</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><button class="dropdown-item" (click)="confirmLogout()">Logout</button></li>
+            </ul>
           </li>
         </ng-template>
       </ul>
