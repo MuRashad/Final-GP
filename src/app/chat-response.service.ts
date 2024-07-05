@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ChatResponseService {
-  private apiUrl = 'https://0198-34-125-56-169.ngrok-free.app/api/v1/patients/generate';
+  private apiUrl = 'https://d69a-34-90-114-147.ngrok-free.app//api/v1/patients/generate';
 
   constructor(private http: HttpClient) { }
 
