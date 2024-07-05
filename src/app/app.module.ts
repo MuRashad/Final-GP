@@ -19,8 +19,9 @@ import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 import { CategoryBoxesComponent } from './category-boxes/category-boxes.component';
 import { ProfileComponent } from './profile/profile.component';
-
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import { ProfileComponent } from './profile/profile.component';
     MedicinesComponent,
     MedicineDetailsComponent,
     CategoryBoxesComponent,
-    ProfileComponent
+    ProfileComponent,
+    CarouselHolderComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,8 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     FormsModule, 
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    CarouselModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

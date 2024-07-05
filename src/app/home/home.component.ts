@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,35 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  constructor(private elementRef: ElementRef) {}
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
+  }
+constructor(private elementRef: ElementRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    
+  }
 
   scrollToContact(event: Event): void {
     event.preventDefault(); // Prevent default action (e.g., navigation)
@@ -19,5 +46,4 @@ export class HomeComponent {
       contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-
 }
