@@ -1,0 +1,100 @@
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+}
+
+.profile-container {
+  width: 100%;
+  max-width: 500px; /* Adjust max-width as per your design */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-photo .placeholder-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+  cursor: pointer;
+  color: #555;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.profile-photo input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.profile-details {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.profile-item {
+  margin-bottom: 10px;
+}
+
+.profile-item p {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.profile-item label {
+  font-weight: bold;
+  color: #333;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #555;
+  transition: color 0.3s ease;
+}
+
+.icon-button:hover {
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+

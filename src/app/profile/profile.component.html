@@ -1,9 +1,34 @@
-<div *ngIf="username">
-  <p>Username: {{ username }}</p>
-</div>
-<div *ngIf="userId">
-  <p>User ID: {{ userId }}</p>
-</div>
-<div *ngIf="userType">
-  <p>User Type: {{ userType }}</p>
+<div class="center-container">
+  <div class="profile-container">
+    <div class="profile-header">
+      <div class="profile-photo">
+        <label for="fileInput" class="profile-photo-label">
+          <img *ngIf="userProfilePhoto" [src]="userProfilePhoto" alt="User Photo" class="profile-image" />
+          <span *ngIf="!userProfilePhoto" class="placeholder-text">Upload</span>
+          <input type="file" id="fileInput" accept="image/*" (change)="onPhotoSelected($event)" />
+        </label>
+      </div>
+      <div class="profile-details">
+        <div class="profile-item">
+          <label>User ID:</label>
+          <p>{{ userId }}</p>
+        </div>
+        <div class="profile-item">
+          <label>User Type:</label>
+          <p>{{ userType }}</p>
+        </div>
+        <div class="profile-item">
+          <label>Username:</label>
+          <input type="text" [(ngModel)]="username" [disabled]="!isEditing" class="form-control">
+        </div>
+        <div class="profile-item">
+          <!-- Edit icon to enable editing -->
+          <button class="icon-button" (click)="toggleEditing()">
+            <i *ngIf="!isEditing" class="fa fa-pencil"></i> <!-- Font Awesome edit icon -->
+            <i *ngIf="isEditing" class="fa fa-save"></i> <!-- Font Awesome save icon -->
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
