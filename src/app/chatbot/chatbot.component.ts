@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChatResponseService } from '../chat-response.service';
+
 
 interface ChatMessage {
   message: string;
@@ -21,13 +22,13 @@ interface Chat {
   styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
-  chatForm: FormGroup;
+  chatForm: FormGroup ;
   messages: ChatMessage[] = [];
   chatHistory: Chat[] = [];
   currentChat: Chat | null = null;
 
   constructor(private fb: FormBuilder, private chatService: ChatResponseService) {
-    this.chatForm = this.fb.group({ message: [''] });
+    this.chatForm = this.fb.group({ message: ['',Validators.required] });
   }
 
   closeAllMenus(event: Event) {
@@ -52,12 +53,14 @@ export class ChatbotComponent {
         this.chatForm.reset(); // Reset the form here
       },
       error: (error) => {
-        const errorMessage: ChatMessage = { message: userMessage, error: error.message };
+        console.log("error message from bot: ", error);
+        const errorMessage: ChatMessage = { message: userMessage, error: 'Oops, there is an error...' };
+        console.log("error message from bot: ", errorMessage);
         this.messages.push(errorMessage);
         if (this.currentChat) {
           this.currentChat.messages.push(errorMessage);
         }
-        this.chatForm.reset(); // Reset the form here as well
+        this.chatForm.reset();
       }
     });
   }

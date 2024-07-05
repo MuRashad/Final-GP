@@ -14,11 +14,7 @@ export class LoginComponent implements OnInit {
   selectedForm: 'user' | 'pharmacy' | null = null;
 
   userLoginForm: FormGroup = new FormGroup({
-    username: new FormControl(null, [
-      Validators.required,
-      Validators.minLength(3),
-      Validators.maxLength(20)
-    ]),
+    username: new FormControl(null, [Validators.required,Validators.minLength(3),Validators.maxLength(20)]),
     password: new FormControl(null, [
       Validators.required,
       Validators.pattern(/^[A-Za-z]{2}[A-Za-z0-9]{6,}/)
