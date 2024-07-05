@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     const decodedToken = this.authService.decodeUserToken();
     if (decodedToken) {
-      this.username = decodedToken.username; // Adjust to match your token structure
+      this.username = decodedToken.username; // djust to match your token structe
       this.userId = decodedToken.id; // Adjust to match your token structure
       this.userType = this.authService.getUserType();
     }
