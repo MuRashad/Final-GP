@@ -78,12 +78,6 @@ button {
   color: rgb(9, 9, 9);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
 .chat-history-item {
   cursor: pointer;
 }
