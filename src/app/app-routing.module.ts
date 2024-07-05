@@ -10,6 +10,7 @@ import { MedicinesComponent } from './medicines/medicines.component';
 import { MedicineDetailsComponent } from './medicine-details/medicine-details.component';
 import { CanActivateFn } from '@angular/router';
 import { authGuardGuard } from './auth-guard.guard';
+import { ProfileComponent } from './profile/profile.component';
 //#region
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "signup", component: SignupComponent, title: "Register" },
   { path: "login", component: LoginComponent, title: "login" },
   { path: "search",canActivate:[authGuardGuard], component: SearchComponent, title: "search" },
+  { path: 'profile',canActivate:[authGuardGuard], component: ProfileComponent },
   { path: 'medicines',canActivate:[authGuardGuard], component: MedicinesComponent },
   { path: 'medicine/:id', canActivate:[authGuardGuard], component: MedicineDetailsComponent },
   { path: "**", component: NotfoundComponent, title: "error" },
