@@ -38,6 +38,7 @@ export class ChatbotComponent {
 
   sendMessage() {
     const userMessage = this.chatForm.get('message')?.value;
+    console.log(userMessage);
     if (!this.currentChat) {
       this.startNewChat();
     }
@@ -48,7 +49,7 @@ export class ChatbotComponent {
         if (this.currentChat) {
           this.currentChat.messages.push(newMessage);
         }
-        this.chatForm.reset();
+        this.chatForm.reset(); // Reset the form here
       },
       error: (error) => {
         const errorMessage: ChatMessage = { message: userMessage, error: error.message };
@@ -56,6 +57,7 @@ export class ChatbotComponent {
         if (this.currentChat) {
           this.currentChat.messages.push(errorMessage);
         }
+        this.chatForm.reset(); // Reset the form here as well
       }
     });
   }

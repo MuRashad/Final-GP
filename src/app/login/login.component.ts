@@ -86,6 +86,7 @@ export class LoginComponent implements OnInit {
           next: (res) => {
             console.log('Pharmacy Login successful:', res);
             const decodedToken = this.authService.decodeUserToken();
+            console.log("decoded Token",decodedToken) ;
             if (decodedToken) {
               this.router.navigate(['/home']);
               history.pushState(null, '/home');
