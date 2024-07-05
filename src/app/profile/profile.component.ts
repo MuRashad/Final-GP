@@ -12,7 +12,6 @@ export class ProfileComponent implements OnInit {
   userType: string | null = null;
   userProfilePhoto: string | undefined; // User profile photo URL
   isPhotoChanged: boolean = false;
-  isFormEdited: boolean = false;
   isEditing: boolean = false; // Flag to track editing mode
 
   constructor(private authService: AuthService) {}
@@ -25,11 +24,13 @@ export class ProfileComponent implements OnInit {
     const decodedToken = this.authService.decodeUserToken();
     if (decodedToken) {
       if (decodedToken.role === 'user') {
-        this.username = decodedToken.username;
         this.userId = decodedToken.id;
+        // Load username from localStorage if available
+        this.username = localStorage.getItem('username') || decodedToken.username;
       } else if (decodedToken.role === 'pharmacy') {
-        this.username = decodedToken.pharmacy_username;
         this.userId = decodedToken.id;
+        // Load pharmacy username from localStorage if available
+        this.username = localStorage.getItem('username') || decodedToken.pharmacy_username;
       }
       this.userType = decodedToken.role;
 
@@ -44,20 +45,20 @@ export class ProfileComponent implements OnInit {
 
   toggleEditing(): void {
     this.isEditing = !this.isEditing;
-    if (!this.isEditing) {
-      this.isFormEdited = false; // Reset form edited flag when editing is turned off
-    }
   }
 
   saveChanges(): void {
-    // Logic to save changes (e.g., update user profile)
-    // After saving, disable editing mode
-    this.isEditing = false;
-    this.isFormEdited = false; // Reset form edited flag
-  }
+    // Perform save logic only if editing was enabled
+    if (this.isEditing) {
+      // Update username in localStorage
+      localStorage.setItem('username', this.username);
 
-  onFormEdited(): void {
-    this.isFormEdited = true;
+      // For demonstration, simulate updating backend (replace with actual backend update logic)
+      console.log(`Updated username: ${this.username}`);
+
+      // After saving, disable editing mode
+      this.isEditing = false;
+    }
   }
 
   onPhotoSelected(event: any): void {

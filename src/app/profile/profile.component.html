@@ -22,11 +22,17 @@
           <input type="text" [(ngModel)]="username" [disabled]="!isEditing" class="form-control">
         </div>
         <div class="profile-item">
-          <!-- Edit icon to enable editing -->
-          <button class="icon-button" (click)="toggleEditing()">
-            <i *ngIf="!isEditing" class="fa fa-pencil"></i> <!-- Font Awesome edit icon -->
-            <i *ngIf="isEditing" class="fa fa-save"></i> <!-- Font Awesome save icon -->
-          </button>
+          <!-- Edit and Save buttons -->
+          <div class="edit-save-buttons">
+            <button class="edit-button" (click)="toggleEditing()" *ngIf="!isEditing">
+              <i class="fa fa-pencil"></i> <!-- Edit icon -->
+              <span>Edit</span>
+            </button>
+            <button class="save-button" *ngIf="isEditing" (click)="saveChanges()">
+              <i class="fa fa-save"></i> <!-- Save icon -->
+              <span>Save</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
