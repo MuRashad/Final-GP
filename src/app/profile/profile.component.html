@@ -19,20 +19,10 @@
         </div>
         <div class="profile-item">
           <label>Username:</label>
-          <input type="text" [(ngModel)]="username" [disabled]="!isEditing" class="form-control">
+          <p>{{ username }}</p>
         </div>
         <div class="profile-item">
           <!-- Edit and Save buttons -->
-          <div class="edit-save-buttons">
-            <button class="edit-button" (click)="toggleEditing()" *ngIf="!isEditing">
-              <i class="fa fa-pencil"></i> <!-- Edit icon -->
-              <span>Edit</span>
-            </button>
-            <button class="save-button" *ngIf="isEditing" (click)="saveChanges()">
-              <i class="fa fa-save"></i> <!-- Save icon -->
-              <span>Save</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
