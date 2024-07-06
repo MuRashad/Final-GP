@@ -22,6 +22,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselHolderComponent } from './carousel-holder/carousel-holder.component';
+import { LocationPickerComponent } from './location-picker/location-picker.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { CarouselHolderComponent } from './carousel-holder/carousel-holder.compo
     CategoryBoxesComponent,
     ProfileComponent,
     CarouselHolderComponent,
+    LocationPickerComponent,
   ],
   imports: [
     BrowserModule,

@@ -74,9 +74,11 @@
                   <p *ngIf="pharmacyLoginForm.get('pharmacy_password')?.errors?.['pattern']" class="m-0">*password must start with two letters and be at least 8 characters or numbers </p>
                   <p *ngIf="pharmacyLoginForm.get('pharmacy_password')?.errors?.['required']" class="m-0">*password is required</p>
                 </div>
+                
                 <div class="alert alert-danger" *ngIf="apiError.length > 0">
                   {{apiError}}
                 </div>
+
                 <button [disabled]="pharmacyLoginForm.invalid" class="btn btn-secondary mt-2" type="submit">
                   <i *ngIf="isLoading" class="fa-solid fa-spinner fa-spin-pulse"></i>
                   <span *ngIf="!isLoading">Submit</span>
